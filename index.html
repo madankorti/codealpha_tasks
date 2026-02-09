@@ -2,41 +2,324 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Modern Calculator</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madan Korti | Data Science & Analytics</title>
+    <style>
+      /* CSS STYLING */
+      :root {
+        --primary: #00d2ff;
+        --secondary: #3a7bd5;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --gray: #64748b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--dark);
+        color: var(--light);
+        line-height: 1.6;
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 10%;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .logo {
+        font-weight: 800;
+        font-size: 1.5rem;
+        letter-spacing: -1px;
+      }
+      .logo span {
+        color: var(--primary);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+      nav ul li {
+        margin-left: 2rem;
+      }
+      nav ul li a {
+        color: var(--light);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        color: var(--primary);
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        padding: 0 10%;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      .hero h1 span {
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin-bottom: 2rem;
+      }
+
+      .contact-pill {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Sections */
+      section {
+        padding: 100px 10%;
+      }
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+      h2 span {
+        color: var(--primary);
+      }
+
+      /* Skills Grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .card {
+        background: #1e293b;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+      }
+      .card h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+      .card ul {
+        list-style: none;
+        color: var(--gray);
+      }
+      .card ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 5rem 10%;
+        background: #0a0f1e;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .btn {
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        color: white;
+        padding: 0.8rem 2rem;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+      }
+    </style>
   </head>
   <body>
-    <div class="calculator">
-      <div class="display">
-        <input type="text" id="display" readonly />
+    <nav>
+      <div class="logo">MADAN<span>.KORTI</span></div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Specialization</a></li>
+        <li><a href="#projects">Data Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div class="contact-pill">📍 Pune, MH | 📱 +91 8805112100</div>
+      <h1>Data <span>Scientist</span> & Engineer</h1>
+      <p>
+        3rd Year Undergrad at Dr. D. Y. Patil Institute of Technology.
+        Specializing in high-performance data architectures and predictive
+        modeling.
+      </p>
+      <a href="#projects" class="btn">Explore My Projects</a>
+    </header>
+
+    <section id="about">
+      <h2>About <span>Me</span></h2>
+      <p
+        style="
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto;
+          color: var(--gray);
+        "
+      >
+        Currently pursuing B.Tech in Electronics & Telecommunication (ENTC) with
+        a heavy focus on **Data Science and Machine Learning**. With a current
+        **CGPA of 8.9**, I combine the analytical rigor of engineering with
+        modern data techniques to build scalable, data-driven solutions. My
+        background allows me to understand data from the hardware level up to
+        high-level predictive insights.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Technical <span>Stack</span></h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Data Science & ML</h3>
+          <ul>
+            <li>• Python (Pandas, NumPy, Scikit-Learn)</li>
+            <li>• Statistical Modeling & Hypothesis Testing</li>
+            <li>• Supervised/Unsupervised Learning</li>
+            <li>• Exploratory Data Analysis (EDA)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Data Engineering</h3>
+          <ul>
+            <li>• Advanced SQL (Joins, Window Functions)</li>
+            <li>• Database Management (MySQL, PostgreSQL)</li>
+            <li>• Data Pipeline Cleaning & Pre-processing</li>
+            <li>• Integration with Microcontroller Data</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Visualization & Tools</h3>
+          <ul>
+            <li>• Power BI / Tableau</li>
+            <li>• Matplotlib & Seaborn</li>
+            <li>• Git, GitHub, & Version Control</li>
+            <li>• Jupyter Notebooks / Google Colab</li>
+          </ul>
+        </div>
       </div>
+    </section>
 
-      <div class="buttons">
-        <button class="action" data-value="C">AC</button>
-        <button class="action" data-value="DEL">⌫</button>
-        <button class="operator" data-value="/">÷</button>
-        <button class="operator" data-value="*">×</button>
-
-        <button data-value="7">7</button>
-        <button data-value="8">8</button>
-        <button data-value="9">9</button>
-        <button class="operator" data-value="-">−</button>
-
-        <button data-value="4">4</button>
-        <button data-value="5">5</button>
-        <button data-value="6">6</button>
-        <button class="operator" data-value="+">+</button>
-
-        <button data-value="1">1</button>
-        <button data-value="2">2</button>
-        <button data-value="3">3</button>
-        <button class="equals" data-value="=">=</button>
-
-        <button class="zero" data-value="0">0</button>
-        <button data-value=".">.</button>
+    <section id="projects">
+      <h2>Data Science <span>Projects</span></h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Real-time Signal Data Analysis</h3>
+          <p style="color: var(--gray); font-size: 0.9rem">
+            Processing high-frequency sensor data from PIC18F4550
+            microcontrollers and applying noise-reduction algorithms using
+            Python to extract clean data patterns.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Predictive Maintenance Model</h3>
+          <p style="color: var(--gray); font-size: 0.9rem">
+            Leveraging Regression models to predict equipment failure based on
+            historical voltage and temperature datasets, reducing downtime by
+            15%.
+          </p>
+        </div>
+        <div class="card">
+          <h3>MAC-Based Computation Analysis</h3>
+          <p style="color: var(--gray); font-size: 0.9rem">
+            Comparative study of hardware-accelerated dot-product calculations
+            vs. software-based matrix multiplications for Neural Network
+            efficiency.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
+    <footer id="contact">
+      <h2>Get In <span>Touch</span></h2>
+      <p style="margin-bottom: 2rem">
+        I am actively seeking Data Science internships for Summer 2026.
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:madan.korti@gmail.com" style="color: var(--primary)"
+          >madan.korti@gmail.com</a
+        >
+      </p>
+      <p><strong>Phone:</strong> +91 8805112100</p>
+      <br />
+      <p style="font-size: 0.8rem; color: var(--gray)">
+        &copy; 2026 Madan Korti | Dr. D. Y. Patil Institute of Technology
+      </p>
+    </footer>
+
+    <script>
+      // Smooth reveal animation
+      const observerOptions = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "all 0.6s ease-out";
+        observer.observe(card);
+      });
+    </script>
   </body>
 </html>

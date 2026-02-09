@@ -1,22 +1,19 @@
-const display = document.getElementById("display");
-const buttons = document.querySelectorAll("button");
+// Simple Reveal Animation on Scroll
+window.addEventListener("scroll", () => {
+  const cards = document.querySelectorAll(".skill-card, .project-item");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const value = button.dataset.value;
-
-    if (value === "C") {
-      display.value = "";
-    } else if (value === "DEL") {
-      display.value = display.value.slice(0, -1);
-    } else if (value === "=") {
-      try {
-        display.value = eval(display.value);
-      } catch {
-        display.value = "Error";
-      }
-    } else {
-      display.value += value;
+  cards.forEach((card) => {
+    const cardTop = card.getBoundingClientRect().top;
+    if (cardTop < window.innerHeight - 100) {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
     }
   });
+});
+
+// Initial state for JS animation
+document.querySelectorAll(".skill-card, .project-item").forEach((card) => {
+  card.style.opacity = "0";
+  card.style.transform = "translateY(20px)";
+  card.style.transition = "all 0.6s ease-out";
 });
